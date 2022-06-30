@@ -5,7 +5,7 @@ const galleryContainerEl = document.querySelector(".gallery")
 const galleryItemMarkupEl = createGalleryItemMarkup(galleryItems)
 
 galleryContainerEl.insertAdjacentHTML("beforeend", galleryItemMarkupEl)
-galleryContainerEl.addEventListener("click", galleryClick)
+
 
 function createGalleryItemMarkup(galleryItems){
     return galleryItems.map(({preview, original, description})=>{
@@ -23,13 +23,5 @@ function createGalleryItemMarkup(galleryItems){
     .join("");
 }
 
+    new SimpleLightbox('.gallery a', {  captionDelay : 250, captionsData: "title"});
 
-
-function galleryClick (event){
-    if (event.target.classList.value !== "gallery__image"){
-        return
-    }
-    
-    new SimpleLightbox('.gallery a', {  captionDelay : 250  });
-    console.log(event.target.title)
-}
